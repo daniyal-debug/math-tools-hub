@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Dynamic Meta Tags - Updated by JavaScript -->
+    <title>Math Tools Hub - Free Calculators for Teachers & Students</title>
+    <meta name="description" content="Free online calculators for teachers and students. Percentage calculator, grade calculator, fraction calculator, and more educational math tools.">
+    <meta name="keywords" content="calculator, percentage calculator, grade calculator, fraction calculator, teacher tools, student tools, math calculator, education tools">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="author" content="Math Tools Hub">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/">
+    <meta property="og:title" content="Math Tools Hub - Free Calculators for Teachers & Students">
+    <meta property="og:description" content="Free online calculators for teachers and students. Percentage calculator, grade calculator, fraction calculator, and more.">
+    <meta property="og:image" content="https://yourwebsite.com/images/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourwebsite.com/">
+    <meta property="twitter:title" content="Math Tools Hub - Free Calculators for Teachers & Students">
+    <meta property="twitter:description" content="Free online calculators for teachers and students.">
+    <meta property="twitter:image" content="https://yourwebsite.com/images/twitter-image.jpg">
+    
+    <!-- Canonical URL - Updated by JavaScript -->
+    <link rel="canonical" href="https://yourwebsite.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Math Tools Hub",
+      "description": "Free online calculators and tools for teachers and students",
+      "url": "https://yourwebsite.com/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Math Tools Hub"
+      }
+    }
+    </script>
+
+    <!-- Google Analytics - REPLACE WITH YOUR GA4 ID -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            color: #2c3e50;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #2c3e50;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 22px;
+            font-weight: 600;
+            padding: 16px 0;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 16px;
+            display: block;
+            border-radius: 4px;
+            transition: background 0.2s;
+            font-size: 14px;
+        }
+
+        .nav-menu li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-menu li a.active {
+            background: #3498db;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+        }
+
+        .calculator-wrapper {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #e1e8ed;
+        }
+
+        .header {
+            background: #34495e;
+            padding: 30px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e1e8ed;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            color: #5a6c7d;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab:hover {
+            color: #2c3e50;
+            background: #fff;
+        }
+
+        .tab.active {
+            color: #2c3e50;
+            background: white;
+            border-bottom-color: #3498db;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .input-group {
+            margin-bottom: 24px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #d1d9e0;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: all 0.2s;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .result-box {
+            background: #f8f9fa;
+            padding: 24px;
+            border-radius: 6px;
+            margin-top: 24px;
+            border: 2px solid #e1e8ed;
+        }
+
+        .result-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #5a6c7d;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .result-value {
+            font-size: 42px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .result-value.positive {
+            color: #27ae60;
+        }
+
+        .result-value.negative {
+            color: #e74c3c;
+        }
+
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: background 0.2s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .fraction-result {
+            font-size: 32px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        /* Ad Spaces */
+        .ad-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .ad-space {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed #d1d9e0;
+            color: #95a5a6;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .ad-space.large {
+            min-height: 600px;
+        }
+
+        /* SEO Content */
+        .seo-content {
+            background: white;
+            padding: 40px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e1e8ed;
+            grid-column: 1 / -1;
+        }
+
+        .seo-content h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .seo-content h3 {
+            color: #34495e;
+            margin-top: 28px;
+            margin-bottom: 12px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .seo-content p {
+            color: #5a6c7d;
+            line-height: 1.7;
+            margin-bottom: 16px;
+            font-size: 15px;
+        }
+
+        .seo-content ul {
+            margin-left: 24px;
+            margin-bottom: 20px;
+        }
+
+        .seo-content li {
+            color: #5a6c7d;
+            line-height: 1.7;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        @media (max-width: 968px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #2c3e50;
+                flex-direction: column;
+                padding: 12px 20px;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 24px;
+            }
+
+            .result-value {
+                font-size: 36px;
+            }
+
+            .ad-space.large {
+                min-height: 250px;
+            }
+        }
+
+        @media print {
+            .navbar, .ad-sidebar, .seo-content {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="?tool=percentage" class="logo">Math Tools Hub</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Toggle menu">☰</button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="?tool=percentage" data-tool="percentage">Percentage</a></li>
+                <li><a href="?tool=grade" data-tool="grade">Grade</a></li>
+                <li><a href="?tool=fraction" data-tool="fraction">Fraction</a></li>
+                <li><a href="?tool=average" data-tool="average">Average</a></li>
+                <li><a href="?tool=ratio" data-tool="ratio">Ratio</a></li>
+                <li><a href="?tool=time" data-tool="time">Time</a></li>
+                <li><a href="?tool=discount" data-tool="discount">Discount</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Percentage Calculator Page -->
+        <div id="percentage-page" class="page active">
+            <div class="calculator-wrapper">
+                <header class="header">
+                    <h1>Percentage Calculator</h1>
+                    <p>Calculate percentages quickly and easily</p>
+                </header>
+
+                <nav class="tabs">
+                    <button class="tab active" onclick="switchPercentageTab('basic')">What % of</button>
+                    <button class="tab" onclick="switchPercentageTab('of')">% of Number</button>
+                    <button class="tab" onclick="switchPercentageTab('change')">% Change</button>
+                </nav>
+
+                <main class="content">
+                    <section id="basic" class="tab-content active">
+                        <div class="input-group">
+                            <label for="basicNum">What number?</label>
+                            <input type="number" id="basicNum" placeholder="Enter number" oninput="calculateBasic()">
+                        </div>
+                        <div class="input-group">
+                            <label for="basicTotal">Is what percent of?</label>
+                            <input type="number" id="basicTotal" placeholder="Enter total" oninput="calculateBasic()">
+                        </div>
+                        <div class="result-box">
+                            <div class="result-label">Result</div>
+                            <div class="result-value" id="basicResult">0%</div>
+                        </div>
+                    </section>
+
+                    <section id="of" class="tab-content">
+                        <div class="input-group">
+                            <label for="percentOf">What percent?</label>
+                            <input type="number" id="percentOf" placeholder="Enter percentage" oninput="calculatePercentOf()">
+                        </div>
+                        <div class="input-group">
+                            <label for="numberOf">Of what number?</label>
+                            <input type="number" id="numberOf" placeholder="Enter number" oninput="calculatePercentOf()">
+                        </div>
+                        <div class="result-box">
+                            <div class="result-label">Result</div>
+                            <div class="result-value" id="ofResult">0</div>
+                        </div>
+                    </section>
+
+                    <section id="change" class="tab-content">
+                        <div class="input-group">
+                            <label for="originalVal">Original value</label>
+                            <input type="number" id="originalVal" placeholder="Enter original value" oninput="calculateChange()">
+                        </div>
+                        <div class="input-group">
+                            <label for="newVal">New value</label>
+                            <input type="number" id="newVal" placeholder="Enter new value" oninput="calculateChange()">
+                        </div>
+                        <div class="result-box">
+                            <div class="result-label">Percentage Change</div>
+                            <div class="result-value" id="changeResult">0%</div>
+                        </div>
+                    </section>
+                </main>
+            </div>
+        </div>
+
+        <!-- Grade Calculator Page -->
+        <div id="grade-page" class="page">
+            <div class="calculator-wrapper">
+                <header class="header">
+                    <h1>Grade Calculator</h1>
+                    <p>Calculate weighted grades and GPA</p>
+                </header>
+
+                <main class="content">
+                    <div class="input-group">
+                        <label for="totalPoints">Total Points Earned</label>
+                        <input type="number" id="totalPoints" placeholder="Enter points earned" oninput="calculateGrade()">
+                    </div>
+                    <div class="input-group">
+                        <label for="maxPoints">Maximum Points</label>
+                        <input type="number" id="maxPoints" placeholder="Enter maximum points" oninput="calculateGrade()">
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label">Grade Percentage</div>
+                        <div class="result-value" id="gradeResult">0%</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label">Letter Grade</div>
+                        <div class="result-value" id="letterGrade" style="font-size: 48px;">-</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Fraction Calculator Page -->
+        <div id="fraction-page" class="page">
+            <div class="calculator-wrapper">
+                <header class="header">
+                    <h1>Fraction Calculator</h1>
+                    <p>Add, subtract, multiply, and divide fractions</p>
+                </header>
+
+                <main class="content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="input-group">
+                            <label for="frac1Num">Numerator 1</label>
+                            <input type="number" id="frac1Num" placeholder="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="frac1Den">Denominator 1</label>
+                            <input type="number" id="frac1Den" placeholder="1">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="operation">Operation</label>
+                        <select id="operation">
+                            <option value="add">Add (+)</option>
+                            <option value="subtract">Subtract (-)</option>
+                            <option value="multiply">Multiply (×)</option>
+                            <option value="divide">Divide (÷)</option>
+                        </select>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                        <div class="input-group">
+                            <label for="frac2Num">Numerator 2</label>
+                            <input type="number" id="frac2Num" placeholder="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="frac2Den">Denominator 2</label>
+                            <input type="number" id="frac2Den" placeholder="1">
+                        </div>
+                    </div>
+
+                    <button class="btn" onclick="calculateFraction()">Calculate</button>
+
+                    <div class="result-box">
+                        <div class="result-label">Result</div>
+                        <div class="fraction-result" id="fractionResult">0/1</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Average Calculator Page -->
+        <div id="average-page" class="page">
+            <div class="calculator-wrapper">
+                <header class="header">
+                    <h1>Average Calculator</h1>
+                    <p>Calculate mean, median, and mode</p>
+                </header>
+
+                <main class="content">
+                    <div class="input-group">
+                        <label for="numbers">Enter numbers (comma separated)</label>
+                        <input type="text" id="numbers" placeholder="e.g., 85, 90, 78, 92, 88">
+                    </div>
+                    
+                    <button class="btn" onclick="calculateAverage()">Calculate</button>
+
+                    <div class="result-box">
+                        <div class="result-label">Mean (Average)</div>
+                        <div class="result-value" id="meanResult">0</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label">Median</div>
+                        <div class="result-value" id="medianResult">0</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label">Count</div>
+                        <div class="result-value" id="countResult">0</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Ratio Calculator Page -->
+        <div id="ratio-page" class="page">
+            <div class="calculator-wrapper">
+                <header class="header">
+                    <h1>Ratio Calculator</h1>
+                    <p>Solve ratio and proportion problems</p>
+                </header>
+
+                <main class="content">
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: end;">
+                        <div class="input-group">
+                            <label for="ratioA">A</label>
+                            <input type="number" id="ratioA" placeholder="Enter A">
+                        </div>
+                        <div style="font-size: 24px; padding-bottom: 12px;">:</div>
+                        <div class="input-group">
+                            <label for="ratioB">B</label>
+                            <input type="number" id="ratioB" placeholder="Enter B">
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin: 20px 0; font-size: 20px; color: #5a6c7d;">
+                        If A is to B, then C is to D
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: end;">
+                        <div class="input-group">
+                            <label for="ratioC">C</label>
+                            <input type="number" id="ratioC" placeholder="Enter C" oninput="calculateRatio()">
+                        </div>
+                        <div style="font-size: 24px; padding-bottom: 12px;">:</div>
+                        <div class="input-group">
+                            <label for="ratioD">D (Result)</label>
+                            <input type="number" id="ratioD" placeholder="D will be calculated" disabled style="background: #f8f9fa;">
+                        </div>
+                    </div>
+
+                    <div class="result-box">
+                        <div class="result-label">D Value</div>
+                        <div class="result-value" id="ratioDResult">0</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Time Calculator Page -->
+        <div id="time-page" class="page">
+            <div class="calculator-wrapper">
+                <header class="header">
+                    <h1>Time Calculator</h1>
+                    <p>Add and subtract time durations</p>
+                </header>
+
+                <main class="content">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                        <div class="input-group">
+                            <label for="hours1">Hours</label>
+                            <input type="number" id="hours1" placeholder="0" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="minutes1">Minutes</label>
+                            <input type="number" id="minutes1" placeholder="0" min="0" max="59">
+                        </div>
+                        <div class="input-group">
+                            <label for="seconds1">Seconds</label>
+                            <input type="number" id="seconds1" placeholder="0" min="0" max="59">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="timeOperation">Operation</label>
+                        <select id="timeOperation">
+                            <option value="add">Add (+)</option>
+                            <option value="subtract">Subtract (-)</option>
+                        </select>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                        <div class="input-group">
+                            <label for="hours2">Hours</label>
+                            <input type="number" id="hours2" placeholder="0" min="0">
+                        </div>
+                        <div class="input-group">
+                            <label for="minutes2">Minutes</label>
+                            <input type="number" id="minutes2" placeholder="0" min="0" max="59">
+                        </div>
+                        <div class="input-group">
+                            <label for="seconds2">Seconds</label>
+                            <input type="number" id="seconds2" placeholder="0" min="0" max="59">
+                        </div>
+                    </div>
+
+                    <button class="btn" onclick="calculateTime()">Calculate</button>
+
+                    <div class="result-box">
+                        <div class="result-label">Result</div>
+                        <div class="result-value" id="timeResult" style="font-size: 36px;">0h 0m 0s</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Discount Calculator Page -->
+        <div id="discount-page" class="page">
+            <div class="calculator-wrapper">
+                <header class="header">
+                    <h1>Discount Calculator</h1>
+                    <p>Calculate discounts and final prices</p>
+                </header>
+
+                <main class="content">
+                    <div class="input-group">
+                        <label for="originalPrice">Original Price</label>
+                        <input type="number" id="originalPrice" placeholder="Enter original price" oninput="calculateDiscount()">
+                    </div>
+                    <div class="input-group">
+                        <label for="discountPercent">Discount Percentage</label>
+                        <input type="number" id="discountPercent" placeholder="Enter discount %" oninput="calculateDiscount()">
+                    </div>
+
+                    <div class="result-box">
+                        <div class="result-label">Discount Amount</div>
+                        <div class="result-value" id="discountAmount">$0.00</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label">Final Price</div>
+                        <div class="result-value" id="finalPrice" style="color: #27ae60;">$0.00</div>
+                    </div>
+                    <div class="result-box">
+                        <div class="result-label">You Save</div>
+                        <div class="result-value" id="savings">$0.00</div>
+                    </div>
+                </main>
+            </div>
+        </div>
+
+        <!-- Ad Sidebar -->
+        <aside class="ad-sidebar">
+            <div class="ad-space">
+                <!-- REPLACE THIS COMMENT WITH YOUR GOOGLE ADSENSE CODE -->
+                <!-- Example AdSense code format:
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+                     crossorigin="anonymous"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                     data-ad-slot="XXXXXXXXXX"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+                -->
+                <div>Google Ad Space<br>300x250</div>
+            </div>
+            <div class="ad-space large">
+                <!-- REPLACE THIS COMMENT WITH YOUR GOOGLE ADSENSE CODE -->
+                <div>Google Ad Space<br>300x600</div>
+            </div>
+        </aside>
+
+        <!-- SEO Content -->
+        <article class="seo-content">
+            <h2 id="seoTitle">Free Math Calculators for Teachers and Students</h2>
+            <div id="seoContent">
+                <p>Access our comprehensive suite of free online calculators designed specifically for teachers and students. All tools are easy to use, accurate, and completely free.</p>
+                
+                <h3>Available Calculators</h3>
+                <ul>
+                    <li><strong>Percentage Calculator:</strong> Calculate percentages, percentage of numbers, and percentage changes instantly</li>
+                    <li><strong>Grade Calculator:</strong> Calculate final grades with weighted categories and convert to letter grades</li>
+                    <li><strong>Fraction Calculator:</strong> Add, subtract, multiply, and divide fractions with automatic simplification</li>
+                    <li><strong>Average Calculator:</strong> Find mean, median, and mode of any set of numbers</li>
+                    <li><strong>Ratio Calculator:</strong> Solve ratio and proportion problems quickly</li>
+                    <li><strong>Time Calculator:</strong> Add and subtract time durations for scheduling</li>
+                    <li><strong>Discount Calculator:</strong> Calculate discounts, sale prices, and savings</li>
+                </ul>
+
+                <h3>Why Teachers Love Our Calculators</h3>
+                <p>Our calculators are designed with educators in mind. They're simple, accurate, and perfect for classroom use. Teachers can use them for demonstrations, and students can use them for homework and practice. All tools work on any device - desktop, tablet, or mobile.</p>
+
+                <h3>Perfect for Students</h3>
+                <p>Whether you're working on homework, studying for a test, or just need to check your work, our calculators provide instant, accurate results. No registration required, no downloads needed - just open and calculate!</p>
+            </div>
+        </article>
+    </div>
+
+    <script>
+        // SEO content for each tool
+        const seoContent = {
+            'percentage': {
+                title: 'Free Percentage Calculator - Calculate Percentages Online',
+                description: 'Free online percentage calculator. Calculate what percent one number is of another, find percentage of a number, and calculate percentage change instantly.',
+                content: `
+                    <p>Use our free percentage calculator to quickly solve any percentage problem. Whether you need to find what percent one number is of another, calculate a percentage of a number, or determine percentage change, our tool provides instant, accurate results.</p>
+                    
+                    <h3>Three Calculation Modes</h3>
+                    <ul>
+                        <li><strong>What % of:</strong> Calculate what percentage one number is of another (e.g., "25 is what percent of 100?")</li>
+                        <li><strong>% of Number:</strong> Find a percentage of any number (e.g., "What is 15% of 200?")</li>
+                        <li><strong>% Change:</strong> Calculate percentage increase or decrease between two values</li>
+                    </ul>
+
+                    <h3>Common Uses</h3>
+                    <p>Perfect for calculating grades, test scores, discounts, tips, tax amounts, sales increases, profit margins, and more. Teachers use it for grading, students for homework, and professionals for business calculations.</p>
+                `
+            },
+            'grade': {
+                title: 'Grade Calculator - Calculate Your Final Grade Online',
+                description: 'Free grade calculator to convert points to percentages and letter grades. Calculate your final grade instantly with our easy-to-use tool.',
+                content: `
+                    <p>Calculate your grade percentage and letter grade instantly. Simply enter your earned points and the maximum points possible, and our calculator will show you both your percentage grade and corresponding letter grade.</p>
+                    
+                    <h3>How It Works</h3>
+                    <p>Enter the total points you earned and the maximum points possible. The calculator automatically computes your percentage and assigns the appropriate letter grade based on standard grading scales (A: 90-100%, B: 80-89%, C: 70-79%, D: 60-69%, F: below 60%).</p>
+
+                    <h3>Perfect For</h3>
+                    <ul>
+                        <li>Students checking their test scores and final grades</li>
+                        <li>Teachers quickly converting points to letter grades</li>
+                        <li>Parents helping students understand their grades</li>
+                    </ul>
+                `
+            },
+            'fraction': {
+                title: 'Fraction Calculator - Add, Subtract, Multiply, Divide Fractions',
+                description: 'Free fraction calculator to add, subtract, multiply, and divide fractions. Get simplified results instantly with step-by-step calculations.',
+                content: `
+                    <p>Solve fraction problems quickly with our free fraction calculator. Add, subtract, multiply, or divide any two fractions and get simplified results instantly.</p>
+                    
+                    <h3>Four Operations</h3>
+                    <ul>
+                        <li><strong>Addition:</strong> Add two fractions with different denominators</li>
+                        <li><strong>Subtraction:</strong> Subtract one fraction from another</li>
+                        <li><strong>Multiplication:</strong> Multiply fractions together</li>
+                        <li><strong>Division:</strong> Divide one fraction by another</li>
+                    </ul>
+
+                    <h3>Automatic Simplification</h3>
+                    <p>Results are automatically simplified to their lowest terms, making it perfect for homework, cooking measurements, construction projects, and any situation requiring fraction calculations.</p>
+                `
+            },
+            'average': {
+                title: 'Average Calculator - Calculate Mean, Median Online',
+                description: 'Free average calculator to find mean, median, and mode of numbers. Enter your data and get instant statistical calculations.',
+                content: `
+                    <p>Calculate the mean (average), median, and count of any set of numbers. Perfect for students, teachers, researchers, and anyone working with data analysis.</p>
+                    
+                    <h3>What You Get</h3>
+                    <ul>
+                        <li><strong>Mean:</strong> The arithmetic average of all numbers</li>
+                        <li><strong>Median:</strong> The middle value when numbers are sorted</li>
+                        <li><strong>Count:</strong> Total number of values entered</li>
+                    </ul>
+
+                    <h3>Easy to Use</h3>
+                    <p>Simply enter your numbers separated by commas, and click calculate. Great for calculating test score averages, analyzing data sets, and understanding statistical measures.</p>
+                `
+            },
+            'ratio': {
+                title: 'Ratio Calculator - Solve Ratios and Proportions Online',
+                description: 'Free ratio calculator to solve proportions and ratio problems. Find missing values in ratios instantly with our easy tool.',
+                content: `
+                    <p>Solve ratio and proportion problems quickly with our ratio calculator. Perfect for scaling recipes, calculating proportions, and solving mathematical ratio problems.</p>
+                    
+                    <h3>How to Use</h3>
+                    <p>Enter three known values (A, B, and C) and the calculator will find the missing fourth value (D) that makes the ratios equal. For example, if A:B = C:D, enter A, B, and C to find D.</p>
+
+                    <h3>Common Applications</h3>
+                    <ul>
+                        <li>Scaling recipes up or down</li>
+                        <li>Converting measurements and units</li>
+                        <li>Solving proportion problems in math homework</li>
+                        <li>Calculating aspect ratios for images and screens</li>
+                    </ul>
+                `
+            },
+            'time': {
+                title: 'Time Calculator - Add and Subtract Time Durations',
+                description: 'Free time calculator to add or subtract hours, minutes, and seconds. Calculate time durations and intervals instantly.',
+                content: `
+                    <p>Add or subtract time durations with our easy time calculator. Perfect for scheduling, time tracking, calculating work hours, and solving time-related problems.</p>
+                    
+                    <h3>Features</h3>
+                    <ul>
+                        <li>Add multiple time durations together</li>
+                        <li>Subtract one time duration from another</li>
+                        <li>Works with hours, minutes, and seconds</li>
+                        <li>Automatic conversion and calculation</li>
+                    </ul>
+
+                    <h3>Perfect For</h3>
+                    <p>Teachers planning lesson schedules, students calculating project time, professionals tracking billable hours, and anyone needing to work with time durations.</p>
+                `
+            },
+            'discount': {
+                title: 'Discount Calculator - Calculate Sale Prices and Savings',
+                description: 'Free discount calculator to find sale prices, discount amounts, and savings. Calculate percentages off instantly for shopping and sales.',
+                content: `
+                    <p>Calculate discount prices, savings, and final costs instantly. Perfect for shopping, sales analysis, and understanding how much you save with percentage discounts.</p>
+                    
+                    <h3>What You Get</h3>
+                    <ul>
+                        <li><strong>Discount Amount:</strong> How much money is taken off</li>
+                        <li><strong>Final Price:</strong> The price you actually pay</li>
+                        <li><strong>You Save:</strong> Total savings from the discount</li>
+                    </ul>
+
+                    <h3>Great For</h3>
+                    <p>Shoppers comparing deals, retailers calculating sale prices, students learning about percentages in real-world contexts, and anyone wanting to know their savings before checkout.</p>
+                `
+            }
+        };
+
+        // Get tool from URL parameter
+        function getToolFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('tool') || 'percentage';
+        }
+
+        // Update page based on URL
+        function updatePageFromURL() {
+            const tool = getToolFromURL();
+            showPageByTool(tool);
+        }
+
+        // Show page by tool name
+        function showPageByTool(toolName) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            const pageElement = document.getElementById(toolName + '-page');
+            if (pageElement) {
+                pageElement.classList.add('active');
+            }
+            
+            // Update nav links
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-tool') === toolName) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Update SEO content
+            updateSEOContent(toolName);
+            
+            // Update page meta tags
+            updatePageMeta(toolName);
+            
+            // Close mobile menu
+            document.getElementById('navMenu').classList.remove('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Update SEO content dynamically
+        function updateSEOContent(toolName) {
+            const content = seoContent[toolName];
+            if (content) {
+                document.getElementById('seoTitle').textContent = content.title;
+                document.getElementById('seoContent').innerHTML = content.content;
+            }
+        }
+
+        // Update page meta tags
+        function updatePageMeta(toolName) {
+            const content = seoContent[toolName];
+            if (content) {
+                document.title = content.title;
+                document.querySelector('meta[name="description"]').setAttribute('content', content.description);
+                
+                // Update Open Graph tags
+                document.querySelector('meta[property="og:title"]').setAttribute('content', content.title);
+                document.querySelector('meta[property="og:description"]').setAttribute('content', content.description);
+                document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
+                
+                // Update Twitter tags
+                document.querySelector('meta[property="twitter:title"]').setAttribute('content', content.title);
+                document.querySelector('meta[property="twitter:description"]').setAttribute('content', content.description);
+                
+                // Update canonical URL
+                document.querySelector('link[rel="canonical"]').setAttribute('href', window.location.href);
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+
+        // Handle navigation clicks
+        document.querySelectorAll('.nav-menu a, .logo').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tool = this.getAttribute('data-tool') || 'percentage';
+                const newURL = window.location.pathname + '?tool=' + tool;
+                window.history.pushState({tool: tool}, '', newURL);
+                showPageByTool(tool);
+            });
+        });
+
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            updatePageFromURL();
+        });
+
+        // Initialize on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            updatePageFromURL();
+        });
+
+        // Percentage Calculator Functions
+        function switchPercentageTab(tabName) {
+            document.querySelectorAll('#percentage-page .tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('#percentage-page .tab').forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function calculateBasic() {
+            const num = parseFloat(document.getElementById('basicNum').value);
+            const total = parseFloat(document.getElementById('basicTotal').value);
+            
+            if (num && total && total !== 0) {
+                const result = ((num / total) * 100).toFixed(2);
+                document.getElementById('basicResult').textContent = result + '%';
+            } else {
+                document.getElementById('basicResult').textContent = '0%';
+            }
+        }
+
+        function calculatePercentOf() {
+            const percent = parseFloat(document.getElementById('percentOf').value);
+            const number = parseFloat(document.getElementById('numberOf').value);
+            
+            if (percent && number) {
+                const result = ((percent / 100) * number).toFixed(2);
+                document.getElementById('ofResult').textContent = result;
+            } else {
+                document.getElementById('ofResult').textContent = '0';
+            }
+        }
+
+        function calculateChange() {
+            const original = parseFloat(document.getElementById('originalVal').value);
+            const newValue = parseFloat(document.getElementById('newVal').value);
+            const resultElement = document.getElementById('changeResult');
+            
+            if (original && newValue && original !== 0) {
+                const change = ((newValue - original) / original) * 100;
+                const result = change.toFixed(2);
+                resultElement.textContent = (change >= 0 ? '+' : '') + result + '%';
+                
+                resultElement.className = 'result-value';
+                if (change >= 0) {
+                    resultElement.classList.add('positive');
+                } else {
+                    resultElement.classList.add('negative');
+                }
+            } else {
+                resultElement.textContent = '0%';
+                resultElement.className = 'result-value';
+            }
+        }
+
+        // Grade Calculator
+        function calculateGrade() {
+            const points = parseFloat(document.getElementById('totalPoints').value);
+            const max = parseFloat(document.getElementById('maxPoints').value);
+            
+            if (points && max && max !== 0) {
+                const percentage = ((points / max) * 100).toFixed(2);
+                document.getElementById('gradeResult').textContent = percentage + '%';
+                
+                let letter = 'F';
+                if (percentage >= 90) letter = 'A';
+                else if (percentage >= 80) letter = 'B';
+                else if (percentage >= 70) letter = 'C';
+                else if (percentage >= 60) letter = 'D';
+                
+                document.getElementById('letterGrade').textContent = letter;
+            } else {
+                document.getElementById('gradeResult').textContent = '0%';
+                document.getElementById('letterGrade').textContent = '-';
+            }
+        }
+
+        // Fraction Calculator
+        function gcd(a, b) {
+            return b === 0 ? a : gcd(b, a % b);
+        }
+
+        function calculateFraction() {
+            const num1 = parseInt(document.getElementById('frac1Num').value) || 0;
+            const den1 = parseInt(document.getElementById('frac1Den').value) || 1;
+            const num2 = parseInt(document.getElementById('frac2Num').value) || 0;
+            const den2 = parseInt(document.getElementById('frac2Den').value) || 1;
+            const operation = document.getElementById('operation').value;
+            
+            let resultNum, resultDen;
+            
+            if (operation === 'add') {
+                resultNum = num1 * den2 + num2 * den1;
+                resultDen = den1 * den2;
+            } else if (operation === 'subtract') {
+                resultNum = num1 * den2 - num2 * den1;
+                resultDen = den1 * den2;
+            } else if (operation === 'multiply') {
+                resultNum = num1 * num2;
+                resultDen = den1 * den2;
+            } else if (operation === 'divide') {
+                resultNum = num1 * den2;
+                resultDen = den1 * num2;
+            }
+            
+            const divisor = gcd(Math.abs(resultNum), Math.abs(resultDen));
+            resultNum /= divisor;
+            resultDen /= divisor;
+            
+            document.getElementById('fractionResult').textContent = resultNum + '/' + resultDen;
+        }
+
+        // Average Calculator
+        function calculateAverage() {
+            const input = document.getElementById('numbers').value;
+            const numbers = input.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+            
+            if (numbers.length === 0) return;
+            
+            const sum = numbers.reduce((a, b) => a + b, 0);
+            const mean = (sum / numbers.length).toFixed(2);
+            
+            const sorted = [...numbers].sort((a, b) => a - b);
+            const median = sorted.length % 2 === 0
+                ? ((sorted[sorted.length / 2 - 1] + sorted[sorted.length / 2]) / 2).toFixed(2)
+                : sorted[Math.floor(sorted.length / 2)].toFixed(2);
+            
+            document.getElementById('meanResult').textContent = mean;
+            document.getElementById('medianResult').textContent = median;
+            document.getElementById('countResult').textContent = numbers.length;
+        }
+
+        // Ratio Calculator
+        function calculateRatio() {
+            const a = parseFloat(document.getElementById('ratioA').value);
+            const b = parseFloat(document.getElementById('ratioB').value);
+            const c = parseFloat(document.getElementById('ratioC').value);
+            
+            if (a && b && c && b !== 0) {
+                const d = (b * c) / a;
+                document.getElementById('ratioD').value = d.toFixed(2);
+                document.getElementById('ratioDResult').textContent = d.toFixed(2);
+            }
+        }
+
+        // Time Calculator
+        function calculateTime() {
+            const h1 = parseInt(document.getElementById('hours1').value) || 0;
+            const m1 = parseInt(document.getElementById('minutes1').value) || 0;
+            const s1 = parseInt(document.getElementById('seconds1').value) || 0;
+            
+            const h2 = parseInt(document.getElementById('hours2').value) || 0;
+            const m2 = parseInt(document.getElementById('minutes2').value) || 0;
+            const s2 = parseInt(document.getElementById('seconds2').value) || 0;
+            
+            const operation = document.getElementById('timeOperation').value;
+            
+            let totalSeconds1 = h1 * 3600 + m1 * 60 + s1;
+            let totalSeconds2 = h2 * 3600 + m2 * 60 + s2;
+            
+            let resultSeconds = operation === 'add' 
+                ? totalSeconds1 + totalSeconds2 
+                : totalSeconds1 - totalSeconds2;
+            
+            if (resultSeconds < 0) resultSeconds = 0;
+            
+            const hours = Math.floor(resultSeconds / 3600);
+            const minutes = Math.floor((resultSeconds % 3600) / 60);
+            const seconds = resultSeconds % 60;
+            
+            document.getElementById('timeResult').textContent = hours + 'h ' + minutes + 'm ' + seconds + 's';
+        }
+
+        // Discount Calculator
+        function calculateDiscount() {
+            const price = parseFloat(document.getElementById('originalPrice').value);
+            const discount = parseFloat(document.getElementById('discountPercent').value);
+            
+            if (price && discount) {
+                const discountAmount = (price * discount) / 100;
+                const finalPrice = price - discountAmount;
+                
+                document.getElementById('discountAmount').textContent = '$' + discountAmount.toFixed(2);
+                document.getElementById('finalPrice').textContent = '$' + finalPrice.toFixed(2);
+                document.getElementById('savings').textContent = '$' + discountAmount.toFixed(2);
+            } else {
+                document.getElementById('discountAmount').textContent = '$0.00';
+                document.getElementById('finalPrice').textContent = '$0.00';
+                document.getElementById('savings').textContent = '$0.00';
+            }
+        }
+    </script>
+</body>
+</html>
