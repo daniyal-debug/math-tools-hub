@@ -423,7 +423,7 @@
             background: #2c3e50;
             color: white;
             margin-top: 40px;
-            padding: 40px 20px 20px;
+            padding: 50px 20px 30px;
         }
 
         .footer-container {
@@ -433,21 +433,43 @@
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
             gap: 40px;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
         }
 
         .footer-section h3 {
-            font-size: 18px;
-            margin-bottom: 16px;
+            font-size: 16px;
+            margin-bottom: 20px;
             color: #3498db;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .footer-section p {
-            color: #bdc3c7;
-            line-height: 1.6;
-            font-size: 14px;
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: #ecf0f1;
+            font-size: 15px;
+        }
+
+        .footer-contact-item svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-item a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-contact-item a:hover {
+            color: #3498db;
         }
 
         .footer-links {
@@ -455,13 +477,13 @@
         }
 
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-links a {
             color: #bdc3c7;
             text-decoration: none;
-            font-size: 14px;
+            font-size: 15px;
             transition: color 0.2s;
         }
 
@@ -469,16 +491,47 @@
             color: #3498db;
         }
 
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #34495e;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .social-links a:hover {
+            background: #3498db;
+            transform: translateY(-2px);
+        }
+
+        .social-links svg {
+            width: 20px;
+            height: 20px;
+        }
+
         .footer-bottom {
             border-top: 1px solid #34495e;
-            padding-top: 20px;
-            text-align: center;
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .footer-bottom p {
             color: #95a5a6;
             font-size: 14px;
-            margin: 8px 0;
+            margin: 0;
         }
 
         .footer-bottom a {
@@ -495,13 +548,39 @@
             font-weight: 600;
         }
 
+        .footer-branding {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #95a5a6;
+            font-size: 14px;
+        }
+
+        .footer-branding svg {
+            width: 20px;
+            height: 20px;
+        }
+
         @media print {
             .navbar, .ad-sidebar, .seo-content, .footer {
                 display: none;
             }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 968px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 640px) {
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -890,7 +969,65 @@
         </article>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- About Section -->
+                <div class="footer-section">
+                    <h3>About Math Tools Hub</h3>
+                    <p>Free online calculators and educational tools designed for teachers and students. Accurate, easy-to-use, and completely free.</p>
+                    <p style="margin-top: 12px;">A product of <span class="company-name">Velociti Labs</span></p>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Our Calculators</h3>
+                    <ul class="footer-links">
+                        <li><a href="?tool=percentage">Percentage Calculator</a></li>
+                        <li><a href="?tool=grade">Grade Calculator</a></li>
+                        <li><a href="?tool=fraction">Fraction Calculator</a></li>
+                        <li><a href="?tool=average">Average Calculator</a></li>
+                        <li><a href="?tool=ratio">Ratio Calculator</a></li>
+                        <li><a href="?tool=time">Time Calculator</a></li>
+                        <li><a href="?tool=discount">Discount Calculator</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources -->
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="alert('Coming Soon!'); return false;">How to Use</a></li>
+                        <li><a href="#" onclick="alert('Coming Soon!'); return false;">Math Guides</a></li>
+                        <li><a href="#" onclick="alert('Coming Soon!'); return false;">Teacher Resources</a></li>
+                        <li><a href="#" onclick="alert('Coming Soon!'); return false;">Student Tips</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Legal -->
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="alert('Coming Soon!'); return false;">About Velociti Labs</a></li>
+                        <li><a href="#" onclick="alert('Coming Soon!'); return false;">Contact Us</a></li>
+                        <li><a href="#" onclick="alert('Coming Soon!'); return false;">Privacy Policy</a></li>
+                        <li><a href="#" onclick="alert('Coming Soon!'); return false;">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Section -->
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> <a href="https://yourwebsite.com" class="company-name">Velociti Labs</a>. All Rights Reserved.</p>
+                <p>Math Tools Hub is a trademark of Velociti Labs.</p>
+            </div>
+        </div>
+    </footer>
+
     <script>
+        // Set current year dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
         // SEO content for each tool
         const seoContent = {
             'percentage': {
