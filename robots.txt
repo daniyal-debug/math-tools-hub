@@ -1,0 +1,9 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Sitemap location (REPLACE WITH YOUR ACTUAL DOMAIN)
+Sitemap: https://yourwebsite.com/sitemap.xml
+
+# Crawl-delay to prevent server overload
+Crawl-delay: 1
