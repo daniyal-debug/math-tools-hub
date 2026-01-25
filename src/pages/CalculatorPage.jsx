@@ -2,6 +2,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'lucide-react'
 import { getCalculatorById } from '../utils/calculatorData'
 import Button from '../components/ui/Button'
+import AdSpace from '../components/ui/AdSpace'
 
 // Import calculator components
 import PercentageCalculator from '../components/calculators/PercentageCalculator'
@@ -77,8 +78,14 @@ export default function CalculatorPage() {
                 </div>
             </div>
 
+            {/* Top Ad */}
+            <AdSpace size="728x90" className="opacity-80 hover:opacity-100 transition-opacity" />
+
             {/* Calculator Component */}
             <CalculatorComponent color={calculator.color} />
+
+            {/* Bottom Ad */}
+            <AdSpace size="728x90" className="pt-8 opacity-80 hover:opacity-100 transition-opacity" />
         </div>
     )
 }

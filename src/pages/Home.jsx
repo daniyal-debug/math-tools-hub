@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Card from '../components/ui/Card'
+import AdSpace from '../components/ui/AdSpace'
 import { calculators } from '../utils/calculatorData'
 import { Sparkles } from 'lucide-react'
 
@@ -23,6 +24,9 @@ export default function Home() {
                     Your comprehensive suite of free online calculators for all your mathematical needs
                 </p>
             </section>
+
+            {/* Top Ad Space */}
+            <AdSpace size="728x90" />
 
             {/* Calculators Grid */}
             <section id="calculators" className="space-y-6">
@@ -67,6 +71,9 @@ export default function Home() {
                     })}
                 </div>
             </section>
+
+            {/* Bottom Ad Space */}
+            <AdSpace size="728x90" />
 
             {/* Features Section */}
             <section className="grid md:grid-cols-3 gap-6 py-12">
