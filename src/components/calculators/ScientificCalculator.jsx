@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
@@ -89,3 +90,4 @@ export default function ScientificCalculator({ color }) {
         </div>
     )
 }
+

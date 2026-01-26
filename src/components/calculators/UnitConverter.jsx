@@ -1,3 +1,4 @@
+'use client';
 import { useState } from 'react'
 import Card from '../ui/Card'
 import Input from '../ui/Input'
@@ -70,3 +71,4 @@ export default function UnitConverter({ color }) {
         </div>
     )
 }
+

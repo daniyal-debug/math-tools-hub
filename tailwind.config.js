@@ -3,6 +3,7 @@ export default {
     content: [
         "./index.html",
         "./src/**/*.{js,ts,jsx,tsx}",
+        "./app/**/*.{js,ts,jsx,tsx}",
     ],
     theme: {
         extend: {
@@ -37,5 +38,13 @@ export default {
             }
         },
     },
-    plugins: [],
+    plugins: [require("daisyui")],
+    daisyui: {
+        themes: ["dark", "night", "luxury"],
+        base: true,
+        styled: true,
+        utils: true,
+        prefix: "",
+        logs: false,
+    },
 }

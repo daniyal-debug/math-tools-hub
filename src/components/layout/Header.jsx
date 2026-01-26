@@ -1,4 +1,5 @@
 import { Calculator } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Header() {
     return (
@@ -18,15 +19,15 @@ export default function Header() {
                     </div>
 
                     <nav className="hidden md:flex items-center gap-6">
-                        <a href="/" className="text-sm text-gray-300 hover:text-white transition-colors">
+                        <Link href="/" className="text-sm text-gray-300 hover:text-white transition-colors">
                             Home
-                        </a>
-                        <a href="#calculators" className="text-sm text-gray-300 hover:text-white transition-colors">
+                        </Link>
+                        <Link href="/sitemap" className="text-sm text-gray-300 hover:text-white transition-colors">
                             Calculators
-                        </a>
-                        <a href="#about" className="text-sm text-gray-300 hover:text-white transition-colors">
+                        </Link>
+                        <Link href="/about" className="text-sm text-gray-300 hover:text-white transition-colors">
                             About
-                        </a>
+                        </Link>
                     </nav>
                 </div>
             </div>

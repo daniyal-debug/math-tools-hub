@@ -1,17 +1,9 @@
-export default function Input({
-    label,
-    type = 'number',
-    value,
-    onChange,
-    placeholder,
-    error,
-    ...props
-}) {
+export default function Input({ label, type = 'text', value, onChange, placeholder, className = '', ...props }) {
     return (
-        <div className="space-y-2">
+        <div className="form-control w-full space-y-2">
             {label && (
-                <label className="block text-sm font-medium text-gray-300">
-                    {label}
+                <label className="label py-0">
+                    <span className="label-text text-gray-400 font-medium">{label}</span>
                 </label>
             )}
             <input
@@ -19,15 +11,9 @@ export default function Input({
                 value={value}
                 onChange={onChange}
                 placeholder={placeholder}
-                className={`
-          w-full input-glass
-          ${error ? 'border-red-500 focus:ring-red-500/30' : ''}
-        `}
+                className={`input input-bordered bg-white/5 border-white/10 focus:border-white/30 focus:bg-white/10 text-white placeholder:text-white/20 transition-all duration-300 w-full ${className}`}
                 {...props}
             />
-            {error && (
-                <p className="text-sm text-red-400">{error}</p>
-            )}
         </div>
     )
 }

@@ -1,14 +1,15 @@
 export default function Button({ children, onClick, variant = 'primary', className = '', ...props }) {
     const variants = {
-        primary: 'bg-gradient-to-r from-primary-olive to-primary-mint text-black font-semibold',
-        secondary: 'bg-white/10 text-white border border-white/20 hover:bg-white/20',
-        danger: 'bg-red-500 text-white hover:bg-red-600',
+        primary: 'btn-primary shadow-lg shadow-primary-olive/20 hover:shadow-primary-olive/40',
+        secondary: 'btn-outline border-white/20 text-white hover:bg-white/10 hover:border-white/30',
+        danger: 'btn-error text-white hover:scale-105',
+        ghost: 'btn-ghost text-gray-400 hover:text-white',
     }
 
     return (
         <button
             onClick={onClick}
-            className={`btn-primary ${variants[variant]} ${className}`}
+            className={`btn normal-case transition-all duration-300 active:scale-95 ${variants[variant]} ${className}`}
             {...props}
         >
             {children}
