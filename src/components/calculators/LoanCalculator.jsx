@@ -1,4 +1,8 @@
 'use client';
+import { useState } from 'react'
+import ResultDisplay from '../ui/ResultDisplay'
+import Input from '../ui/Input'
+import Card from '../ui/Card'
 import { calculateEMI } from '../../utils/financeUtils'
 
 export default function LoanCalculator({ color }) {
@@ -41,4 +45,5 @@ export default function LoanCalculator({ color }) {
         </div>
     )
 }
+
 

@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react'
+import Input from '../ui/Input'
 import Card from '../ui/Card'
 import Button from '../ui/Button'
 import { generatePassword } from '../../utils/webUtils'
@@ -86,4 +87,5 @@ export default function PasswordGenerator({ color }) {
         </div>
     )
 }
+
 
