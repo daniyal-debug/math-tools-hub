@@ -1,6 +1,7 @@
 import Card from '../../../components/ui/Card'
 import AdSpace from '../../../components/ui/AdSpace'
-import { categories, getCategoryById, calculators } from '../../../utils/calculatorData'
+import { categories, getCategoryById, getCalculatorsByCategory } from '../../../utils/calculatorData'
+
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
