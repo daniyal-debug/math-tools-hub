@@ -1,7 +1,10 @@
+'use client';
+
 import { Copy, Check } from 'lucide-react'
 import { useState } from 'react'
 
 export default function ResultDisplay({ value, label = 'Result', color = 'white' }) {
+
     const [copied, setCopied] = useState(false)
 
     const handleCopy = () => {

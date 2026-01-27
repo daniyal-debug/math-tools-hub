@@ -1,4 +1,6 @@
+'use client';
 export default function Card({ children, className = '', color = 'olive', onClick, hover = true }) {
+
     const colorClasses = {
         olive: 'from-primary-olive/25 to-primary-olive/5 border-primary-olive/30 ring-primary-olive/20',
         purple: 'from-primary-purple/25 to-primary-purple/5 border-primary-purple/30 ring-primary-purple/20',

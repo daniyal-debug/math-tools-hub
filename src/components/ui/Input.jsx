@@ -1,4 +1,7 @@
+'use client';
+
 export default function Input({ label, type = 'text', value, onChange, placeholder, className = '', ...props }) {
+
     return (
         <div className="form-control w-full space-y-2">
             {label && (
