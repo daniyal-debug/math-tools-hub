@@ -1,6 +1,7 @@
-import Card from '../src/components/ui/Card'
-import AdSpace from '../src/components/ui/AdSpace'
-import { categories, calculators } from '../src/utils/calculatorData'
+import Card from '../components/ui/Card'
+import AdSpace from '../components/ui/AdSpace'
+import { categories, calculators } from '../utils/calculatorData'
+
 import { Sparkles, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 

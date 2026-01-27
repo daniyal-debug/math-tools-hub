@@ -1,4 +1,5 @@
-import { categories, calculators } from '../../src/utils/calculatorData'
+import { categories, calculators } from '../../utils/calculatorData'
+
 import { Map, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
 

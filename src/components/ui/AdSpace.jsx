@@ -1,4 +1,7 @@
+'use client';
+
 export default function AdSpace({ className = '', size = 'responsive', label = 'Advertisement' }) {
+
     // Standard AdSense Sizes
     const sizes = {
         '728x90': 'min-h-[90px] max-w-[728px]',
