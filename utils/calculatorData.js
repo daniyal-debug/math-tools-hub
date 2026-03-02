@@ -44,7 +44,7 @@ export const categories = [
     {
         id: 'units',
         name: 'Unit Converters',
-        description: 'Convert between different units of measurement instantly.',
+        description: 'Convert between 18 categories: length, weight, temperature, speed, pressure, energy, and more.',
         icon: Ruler,
         color: 'cyan'
     },

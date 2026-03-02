@@ -43,8 +43,9 @@ export default function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {categories.map((cat, index) => {
                         const Icon = cat.icon
+                        const href = cat.id === 'units' ? '/converter' : `/category/${cat.id}`
                         return (
-                            <Link key={cat.id} href={`/category/${cat.id}`}>
+                            <Link key={cat.id} href={href}>
                                 <Card
                                     color={cat.color}
                                     className="group p-8 space-y-6 h-full cursor-pointer"
