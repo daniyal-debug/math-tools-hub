@@ -10,9 +10,27 @@ export async function generateMetadata({ params }) {
     const category = getCategoryById(params.id)
     if (!category) return { title: 'Category Not Found' }
 
+    const title = `${category.name} Calculators - Math Tools Hub`
+    const description = category.description
+
     return {
-        title: `${category.name} Calculators - Math Tools Hub`,
-        description: category.description,
+        title,
+        description,
+        keywords: [`${category.name} calculators`, 'online tools', category.name.toLowerCase()],
+        alternates: {
+            canonical: `/category/${params.id}`,
+        },
+        openGraph: {
+            title,
+            description,
+            url: `/category/${params.id}`,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+        },
     }
 }
 
@@ -31,8 +49,29 @@ export default function CategoryPage({ params }) {
 
     const categoryCalculators = getCalculatorsByCategory(params.id)
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        name: `${category.name} Calculators`,
+        description: category.description,
+        url: `https://mathtoolshub.com/category/${params.id}`,
+        hasPart: categoryCalculators.map(calc => ({
+            '@type': 'SoftwareApplication',
+            name: calc.name,
+            description: calc.description,
+            url: `https://mathtoolshub.com/calculator/${calc.id}`,
+            applicationCategory: 'BrowserApplication'
+        }))
+    }
+
     return (
         <div className="space-y-12 animate-fade-in px-4">
+            {/* Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             {/* Header */}
             <div className="flex items-center gap-6">
                 <Link

@@ -74,6 +74,21 @@ export async function generateMetadata({ params }) {
     return {
         title: calculator.seoTitle,
         description: calculator.metaDescription,
+        keywords: [calculator.name, 'calculator', 'online tool', calculator.category, 'free solver'],
+        alternates: {
+            canonical: `/calculator/${params.id}`,
+        },
+        openGraph: {
+            title: calculator.seoTitle,
+            description: calculator.metaDescription,
+            url: `/calculator/${params.id}`,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: calculator.seoTitle,
+            description: calculator.metaDescription,
+        },
     }
 }
 
@@ -94,8 +109,28 @@ export default function CalculatorPage({ params }) {
     const Icon = calculator.icon
     const relatedCalculators = getCalculatorsByCategory(calculator.category).filter(c => c.id !== params.id).slice(0, 5)
 
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareApplication',
+        name: calculator.seoTitle,
+        description: calculator.metaDescription,
+        applicationCategory: 'BrowserApplication',
+        operatingSystem: 'Any',
+        offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'USD'
+        }
+    }
+
     return (
         <div className="max-w-7xl mx-auto space-y-6 animate-fade-in px-4">
+            {/* Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="flex items-center gap-4">

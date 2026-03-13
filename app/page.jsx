@@ -5,8 +5,26 @@ import { Sparkles, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Home() {
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Math Tools Hub',
+        url: 'https://mathtoolshub.com/',
+        potentialAction: {
+            '@type': 'SearchAction',
+            target: 'https://mathtoolshub.com/search?q={search_term_string}',
+            'query-input': 'required name=search_term_string'
+        }
+    }
+
     return (
         <div className="space-y-12 animate-fade-in">
+            {/* Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             {/* Hero Section */}
             <section className="text-center space-y-8 py-20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-primary-mint/5 blur-[120px] -z-10 animate-pulse" />
