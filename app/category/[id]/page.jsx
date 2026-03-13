@@ -2,9 +2,9 @@ import Card from '../../../components/ui/Card'
 import AdSpace from '../../../components/ui/AdSpace'
 import { categories, getCategoryById, getCalculatorsByCategory } from '../../../utils/calculatorData'
 
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Sparkles } from 'lucide-react'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { notFound, redirect } from 'next/navigation'
 
 export async function generateMetadata({ params }) {
     const category = getCategoryById(params.id)
@@ -41,6 +41,11 @@ export async function generateStaticParams() {
 }
 
 export default function CategoryPage({ params }) {
+    // Unit converters now have a dedicated hub ─ redirect there
+    if (params.id === 'units') {
+        redirect('/converter')
+    }
+
     const category = getCategoryById(params.id)
 
     if (!category) {
@@ -118,7 +123,7 @@ export default function CategoryPage({ params }) {
                                     </p>
                                     <div className="pt-2 flex items-center gap-2 text-primary-mint text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity">
                                         <span>Use Calculator</span>
-                                        <ArrowLeft className="w-4 h-4 rotate-180" />
+                                        <ArrowRight className="w-4 h-4" />
                                     </div>
                                 </Card>
                             </Link>

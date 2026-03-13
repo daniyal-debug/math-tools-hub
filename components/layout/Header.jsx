@@ -25,6 +25,9 @@ export default function Header() {
                         <Link href="/sitemap" className="text-sm text-gray-300 hover:text-white transition-colors">
                             Calculators
                         </Link>
+                        <Link href="/converter" className="text-sm text-gray-300 hover:text-white transition-colors">
+                            Converters
+                        </Link>
                         <Link href="/about" className="text-sm text-gray-300 hover:text-white transition-colors">
                             About
                         </Link>
